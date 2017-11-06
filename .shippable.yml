@@ -2,7 +2,7 @@ language: c
 
 compiler:
   - gcc
-  - clang
+  # - clang
 
 env:
   matrix:
@@ -31,6 +31,7 @@ build:
     options:
 
   ci:
+    - export TEST_RESULTS=${SHIPPABLE_BUILD_DIR}/shippable/testresults
     - echo 1000 | sudo tee /proc/sys/vm/nr_hugepages
     - sudo mkdir -p /mnt/huge
     - sudo mount -t hugetlbfs nodev /mnt/huge
@@ -38,7 +39,12 @@ build:
     - ./bootstrap
     - ./configure --disable-test-perf
     - make
-    - sudo env ODP_SHM_DIR=/dev/shm/odp make check
+    - env ODP_SHM_DIR=/dev/shm/odp make check
+    # - >
+    #   sudo 
+    #   env ODP_SHM_DIR=/dev/shm/odp CK_XML_LOG_FILE_NAME=${TEST_RESULTS}/results.xml 
+    #   make check
+    # - cat ${TEST_RESULTS}/results.xml
 
   on_failure:
     - cat config.log
