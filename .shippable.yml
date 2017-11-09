@@ -40,11 +40,8 @@ build:
     - ./configure --disable-test-perf
     - make
     - env ODP_SHM_DIR=/dev/shm/odp make check
-    # - >
-    #   sudo 
-    #   env ODP_SHM_DIR=/dev/shm/odp CK_XML_LOG_FILE_NAME=${TEST_RESULTS}/results.xml 
-    #   make check
-    # - cat ${TEST_RESULTS}/results.xml
+    - ls -l .
+    - ls -l test/common
 
   on_failure:
     - cat config.log
