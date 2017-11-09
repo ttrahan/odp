@@ -1,9 +1,9 @@
 # FROM drydockaarch64/u16:v5.10.1
 FROM drydockaarch64/u16cpp:master
 
-RUN if $(sudo update-alternatives --list gcc); \
-      then sudo update-alternatives --remove-all gcc; \
-    fi
+# RUN if $(sudo update-alternatives --list gcc); \
+#       then sudo update-alternatives --remove-all gcc; \
+#     fi
 
 RUN sudo apt-get update && sudo apt-get install -yy \
   autoconf \
