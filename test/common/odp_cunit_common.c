@@ -299,7 +299,7 @@ int odp_cunit_run(void)
 	/* CU_basic_set_mode(CU_BRM_VERBOSE); */
 	/* CU_basic_run_tests(); */
 
-  CU_set_output_filename("odp_cunit_common");
+  /* CU_set_output_filename("odp_cunit_common"); */
   CU_automated_run_tests();
 
 	ret = CU_get_number_of_failure_records();
