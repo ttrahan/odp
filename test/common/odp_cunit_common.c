@@ -296,11 +296,11 @@ int odp_cunit_run(void)
 	printf("\tODP implementation name:    %s\n", odp_version_impl_name());
 	printf("\tODP implementation version: %s\n", odp_version_impl_str());
 
-	/* CU_basic_set_mode(CU_BRM_VERBOSE); */
-	/* CU_basic_run_tests(); */
+	CU_basic_set_mode(CU_BRM_VERBOSE);
+	CU_basic_run_tests();
 
-  void CU_set_output_filename(odp-shippable-test);
-  void CU_automated_run_tests(void);
+  CU_set_output_filename("odp_cunit_common");
+  CU_automated_run_tests();
 
 	ret = CU_get_number_of_failure_records();
 
