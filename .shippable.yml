@@ -31,7 +31,7 @@ build:
     options:
 
   ci:
-    - rm /home/shippable/cexec/bin/reports && cp /home/downloads/reports /home/shippable/cexec/bin/
+    - rm /home/shippable/cexec/bin/reports && cp /home/downloads/reports /usr/local/bin/
     - echo 1000 | sudo tee /proc/sys/vm/nr_hugepages
     - sudo mkdir -p /mnt/huge
     - sudo mount -t hugetlbfs nodev /mnt/huge
